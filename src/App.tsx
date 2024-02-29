@@ -19,7 +19,7 @@ function App() {
         >
           Learn React
         </a>
-        <TextBox></TextBox>
+        <TextBox placeholder="Busca tu pokemon"></TextBox>
       </header>
     </div>
   );
