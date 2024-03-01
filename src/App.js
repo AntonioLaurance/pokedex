@@ -75,7 +75,7 @@ const Pokedex = () => {
         <div class='flex-1'>
           <TextBox placeholder="Busca tu pokemon"></TextBox>
         </div>
-        <div class='flex-none'>
+        <div class='flex-none w-30'>
           <Button></Button>
         </div>
       </div>

@@ -6,8 +6,12 @@
     border-radius: 10px;
     font-family: Arial, Helvetica, sans-serif;
     padding-left: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    padding-top: 9px;
+    padding-bottom: 9px;
     margin-bottom: 20px;
+    width: 90%;
 }
 
+::placeholder{
+    color: white;
+}

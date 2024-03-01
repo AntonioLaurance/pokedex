@@ -1,10 +1,9 @@
 .btn {
-    display: block;
-    height: 27px;
-    width: 27px;
+    margin-top: 1px;
+    height: 36px;
+    width: 36px;
     border-radius: 50%;
     color: solid red;
     background-color: red;
-    margin-left: 100px;
     
 }
