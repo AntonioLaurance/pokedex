@@ -425,3 +425,7 @@ yarn-error.log*
 /.pnp
 .pnp.js
 
+# visualization logo files
+._.*
+._.gitignore
+

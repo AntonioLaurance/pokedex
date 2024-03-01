@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const [pokemons, setPokemons] = useState([]);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +21,7 @@ function App() {
         >
           Learn React
         </a>
+        <TextBox placeholder="Busca tu pokemon"></TextBox>
       </header>
     </div>
   );
