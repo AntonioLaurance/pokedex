@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import TextBox from './components/TextBox';
 import logo from './logo.svg';
 import './App.css';
 
