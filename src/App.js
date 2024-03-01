@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import TextBox from './components/TextBox';
 import './Pokedex.css'; // Importa tus estilos CSS
 
 const Pokemon = ({ pokemon }) => {
@@ -29,6 +30,7 @@ const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
 
+  // Call to the API
   useEffect(() => {
     fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
       .then(response => response.json())
@@ -38,6 +40,7 @@ const Pokedex = () => {
   return (
     <div className="pokedex">
       <h1>Pokedex</h1>
+      <TextBox placeholder="Busca tu pokemon"></TextBox>
       <div className="pokemon-list">
         {pokemons.map((pokemon, index) => (
           <button key={index} onClick={() => setSelectedPokemon(pokemon)}>

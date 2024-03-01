@@ -9,7 +9,7 @@ interface TextBoxProps{
 function TextBox(props: TextBoxProps){
     return(
         <input type="text" className="TextBox" placeholder={props.placeholder}>
-
+            
         </input>
     )
 }

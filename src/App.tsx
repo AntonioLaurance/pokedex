@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import TextBox from './components/TextBox';
 import './App.css';
 
 function App() {
+  const [pokemons, setPokemons] = useState([]);
+  const [selectedPokemon, setSelectedPokemon] = useState(null);
+
   return (
     <div className="App">
       <header className="App-header">
