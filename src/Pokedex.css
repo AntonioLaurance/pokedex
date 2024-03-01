@@ -61,8 +61,32 @@ input[type="text"] {
   margin-bottom: 16px;
 }
 
+.decoration-button-green {
+  background-color: #73f440; 
+  border-color: black;
+  border-width: 1px;
+  color: white;
+  width: 80px;
+  height: 20px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  margin-left: 10px;
+}
+
+.decoration-button-yellow {
+  background-color: #facc48; 
+  border-color: black;
+  border-width: 1px;
+  color: white;
+  width: 80px;
+  height: 20px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  margin-left: 10px;
+}
+
 .button-blue {
-  background-color: #6BF5F3;
+  background-color: #6bf5f3;
   display: block;
   width: 50px;
   height: 50px;
@@ -71,7 +95,7 @@ input[type="text"] {
 }
 
 .button-red {
-  background-color: #ED1C24;
+  background-color: #ed1c24;
   display: block;
   width: 20px;
   height: 20px;
@@ -81,7 +105,7 @@ input[type="text"] {
 }
 
 .button-yellow {
-  background-color: #FACC48;
+  background-color: #facc48;
   display: block;
   width: 20px;
   height: 20px;
@@ -91,7 +115,7 @@ input[type="text"] {
 }
 
 .button-green {
-  background-color: #22B14C;
+  background-color: #22b14c;
   display: block;
   width: 20px;
   height: 20px;

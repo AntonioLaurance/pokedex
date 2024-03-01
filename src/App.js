@@ -64,9 +64,15 @@ const Pokedex = () => {
         <div class='flex-none'>
           <button className='decoration-button-blue'></button>
         </div>
+        <div class='flex-none'>
+          <button className='decoration-button-green'></button>
+        </div>
+        <div class='flex-none'>
+          <button className='decoration-button-yellow'></button>
+        </div>
       </div>
       <div class='flex'>
-        <div class='flex-none'>
+        <div class='flex-1'>
           <TextBox placeholder="Busca tu pokemon"></TextBox>
         </div>
         <div class='flex-none'>
