@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import TextBox from './components/TextBox';
+import Button from './components/Button';
 import './Pokedex.css'; // Importa tus estilos CSS
 
 const Pokemon = ({ pokemon }) => {
@@ -30,21 +32,47 @@ const Pokedex = () => {
   const [selectedPokemon, setSelectedPokemon] = useState(null);
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=151')
+    fetch('https://pokeapi.co/api/v2/pokemon?limit=2000')
       .then(response => response.json())
       .then(data => setPokemons(data.results));
   }, []);
 
+  // Function for the text box
+  function searchPokemonByName(name){
+    
+  }
+
   return (
     <div className="pokedex">
-      <h1>Pokedex</h1>
-      <div className='botonesSuperiores'>
-        <button className='button-blue'></button>
-        <button className='button-red'></button>
-        <button className='button-green'></button>
+      <div class='flex'>
+        <div class='flex-none'>
+          <button className='button-blue'></button>
+        </div>
+        <div class='flex-none'>
+          <button className='button-red'></button>
+        </div>
+        <div class='flex-none'>
+          <button className='button-yellow'></button>
+        </div>
+        <div class='flex-none'>
+          <button className='button-green'></button>
+        </div>
       </div>
       <br></br>
       <div className='screen'>{selectedPokemon && <Pokemon pokemon={selectedPokemon} />}</div>
+      <div class='flex'>
+        <div class='flex-none'>
+          <button className='decoration-button-blue'></button>
+        </div>
+      </div>
+      <div class='flex'>
+        <div class='flex-none'>
+          <TextBox placeholder="Busca tu pokemon"></TextBox>
+        </div>
+        <div class='flex-none'>
+          <Button></Button>
+        </div>
+      </div>
       <div className="pokemon-list">
         {pokemons.map((pokemon, index) => (
           <button key={index} onClick={() => setSelectedPokemon(pokemon)}>

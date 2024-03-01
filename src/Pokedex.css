@@ -50,34 +50,53 @@ input[type="text"] {
   margin-right: 10px; 
 }
 
-.search-button {
+.decoration-button-blue {
   background-color: #3498db; 
+  border-color: black;
+  border-width: 1px;
   color: white;
-  padding: 10px 15px;
-  border-radius: 10px; 
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-bottom: 16px;
 }
 
 .button-blue {
-  background-color: #3498db;
+  background-color: #6BF5F3;
   display: block;
   width: 50px;
   height: 50px;
   border-radius: 50%;
+  margin-right: 6px;
 }
+
 .button-red {
   background-color: #ED1C24;
   display: block;
-  width: 10px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  margin-left: auto;
+  margin-right: 4px;
+  margin-left: 4px;
 }
+
+.button-yellow {
+  background-color: #FACC48;
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  margin-right: 4px;
+  margin-left: 4px;
+}
+
 .button-green {
   background-color: #22B14C;
   display: block;
-  width: 10px;
-  height: 15px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  margin-left: auto;
+  margin-right: 4px;
+  margin-left: 4px;
 }
 
