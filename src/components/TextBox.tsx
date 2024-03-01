@@ -1,17 +1,12 @@
-import './TextBox.css'
+import './TextBox.css';
+import React, { forwardRef, Ref, InputHTMLAttributes } from 'react';
 
-// Like a struct in C (attributes without methods)
-interface TextBoxProps{
-    placeholder?: string;
-    color?: string;
-}
+interface TextBoxProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-function TextBox(props: TextBoxProps){
-    return(
-        <input type="text" className="TextBox" placeholder={props.placeholder}>
-            
-        </input>
-    )
-}
+const TextBox = forwardRef(
+  (props: TextBoxProps, ref: Ref<HTMLInputElement>) => {
+    return <input className='TextBox' ref={ref} type="text" {...props} />;
+  }
+);
 
 export default TextBox;
