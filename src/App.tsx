@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
-import logo from './logo.svg';
 import TextBox from './components/TextBox';
+import logo from './logo.svg';
 import './App.css';
 
 function App() {

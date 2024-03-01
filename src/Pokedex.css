@@ -1,53 +1,83 @@
-/* src/components/Pokedex.css */
+body {
+  background-color: #3B020D; 
+  margin: 0;
+  padding: 0;
+}
 
 .pokedex {
-    background-color: red;
-    border: 2px solid #000;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .search-container {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #000;
-    border-radius: 5px;
-  }
-  
-  .search-button {
-    background-color: blue;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .pokemon-info {
-    background-color: #fff;
-    border: 2px solid #000;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .pokemon-info img {
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-  
-  .pokemon-info p {
-    margin: 5px 0;
-  }
-  
+  background-color: #DD082F; 
+  width: 300px; 
+  margin: auto; 
+  padding: 20px;
+  border-radius: 20px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
+  border: 5px solid #000000; 
+  position: relative; 
+}
+
+.screen {
+  background-color: #fff;
+  border: 15px solid #b8b6b6;
+  border-radius: 10px; 
+  padding: 20px;
+  margin-bottom: 20px; 
+}
+
+.pokemon-info {
+  text-align: center; 
+}
+
+.pokemon-info img {
+  width: 80px; 
+}
+
+.pokemon-info p {
+  margin: 5px 0;
+  font-weight: bold; 
+}
+
+.search-container {
+  display: flex;
+  justify-content: space-around; 
+  padding: 10px;
+  background-color: #f1c40f; 
+  margin-bottom: 10px; 
+  border-radius: 20px; 
+}
+
+input[type="text"] {
+  flex: 1; 
+  margin-right: 10px; 
+}
+
+.search-button {
+  background-color: #3498db; 
+  color: white;
+  padding: 10px 15px;
+  border-radius: 10px; 
+}
+
+.button-blue {
+  background-color: #3498db;
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.button-red {
+  background-color: #ED1C24;
+  display: block;
+  width: 10px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: auto;
+}
+.button-green {
+  background-color: #22B14C;
+  display: block;
+  width: 10px;
+  height: 15px;
+  border-radius: 50%;
+  margin-left: auto;
+}
+
