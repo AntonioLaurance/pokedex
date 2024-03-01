@@ -18,7 +18,7 @@ const Pokemon = ({ pokemon }) => {
       <h2>{pokemon.name}</h2>
       {details.stats.map((stat, index) => (
         <p key={index}>
-          {stat.stat.name}: {stat.base_stat}
+          <b>{stat.stat.name}:</b> {stat.base_stat}
         </p>
       ))}
     </div>
