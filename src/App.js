@@ -1,26 +1,51 @@
-import React, { useState, useEffect } from 'react';
-import TextBox from './components/TextBox';
-import Button from './components/Button';
-import './Pokedex.css'; // Importa tus estilos CSS
+import React, { useState, useEffect, useRef } from "react";
+import TextBox from "./components/TextBox";
+import Button from "./components/Button";
+import "./Pokedex.css"; // Importa tus estilos CSS
 
-const Pokemon = ({ pokemon }) => {
-  const [details, setDetails] = useState(null);
+const Pokemon = ({ pokemon, setDetails, isSearch }) => {
+  const [details, setDetailsLocal] = useState(null);
 
   useEffect(() => {
     fetch(pokemon.url)
-      .then(response => response.json())
-      .then(data => setDetails(data));
-  }, [pokemon]);
+      .then((response) => response.json())
+      .then((data) => {
+        setDetailsLocal(data); // Actualiza el estado en el componente padre (Pokedex)
+      });
+    setDetails(details);
+  }, [pokemon, setDetails]);
 
   return details ? (
     <div className="pokemon">
-      <img src={details.sprites.front_default} alt={pokemon.name} />
       <h2>{pokemon.name}</h2>
-      {details.stats.map((stat, index) => (
-        <p key={index}>
-          <b>{stat.stat.name}:</b> {stat.base_stat}
-        </p>
-      ))}
+      {isSearch && (
+        <div>
+          {pokemon && pokemon.stats && (
+            <img src={pokemon.sprites.front_default} alt={pokemon.name} />
+          )}
+          {pokemon &&
+            pokemon.stats &&
+            pokemon.stats.map((stat, index) => (
+              <p key={index}>
+                {stat.stat.name}: {stat.base_stat}
+              </p>
+            ))}
+        </div>
+      )}
+
+      {!isSearch && (
+        <div>
+          {details && details.stats && (
+            <img src={details.sprites.front_default} alt={pokemon.name} />
+          )}
+          {details &&
+            details.stats.map((stat, index) => (
+              <p key={index}>
+                {stat.stat.name}: {stat.base_stat}
+              </p>
+            ))}
+        </div>
+      )}
     </div>
   ) : (
     <p>Cargando...</p>
@@ -30,61 +55,83 @@ const Pokemon = ({ pokemon }) => {
 const Pokedex = () => {
   const [pokemons, setPokemons] = useState([]);
   const [selectedPokemon, setSelectedPokemon] = useState(null);
+  const [details, setDetails] = useState(null);
+  const [isSearch, setIsSearch] = useState(false);
+  const inputText = useRef(null);
 
   useEffect(() => {
-    fetch('https://pokeapi.co/api/v2/pokemon?limit=2000')
-      .then(response => response.json())
-      .then(data => setPokemons(data.results));
+    fetch("https://pokeapi.co/api/v2/pokemon?limit=2000")
+      .then((response) => response.json())
+      .then((data) => setPokemons(data.results));
   }, []);
 
-  // Function for the text box
-  function searchPokemonByName(name){
-    
+  function searchPokemonByName(name) {
+    return fetch(`https://pokeapi.co/api/v2/pokemon/${name}`)
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch Pokemon data");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        setDetails(data);
+        setSelectedPokemon(data);
+        return data;
+      })
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   return (
     <div className="pokedex">
-      <div class='flex'>
-        <div class='flex-none'>
-          <button className='button-blue'></button>
+      <div className="flex">
+        <div className="flex-none">
+          <button className="button-blue"></button>
         </div>
-        <div class='flex-none'>
-          <button className='button-red'></button>
+        <div className="flex-none">
+          <button className="button-red"></button>
         </div>
-        <div class='flex-none'>
-          <button className='button-yellow'></button>
+        <div className="flex-none">
+          <button className="button-yellow"></button>
         </div>
-        <div class='flex-none'>
-          <button className='button-green'></button>
+        <div className="flex-none">
+          <button className="button-green"></button>
         </div>
       </div>
       <br></br>
-      <div className='screen'>{selectedPokemon && <Pokemon pokemon={selectedPokemon} />}</div>
-      <div class='flex'>
-        <div class='flex-none'>
-          <button className='decoration-button-blue'></button>
+      <div className="screen">
+        {selectedPokemon && (
+          <Pokemon
+            pokemon={selectedPokemon}
+            setDetails={setDetails}
+            isSearch={isSearch}
+          />
+        )}
+      </div>
+      <div className="flex">
+        <div className="flex-none">
+          <button className="decoration-button-blue"></button>
         </div>
-        <div class='flex-none'>
-          <button className='decoration-button-green'></button>
+        <div className="flex-none">
+          <button className="decoration-button-green"></button>
         </div>
-        <div class='flex-none'>
-          <button className='decoration-button-yellow'></button>
+        <div className="flex-none">
+          <button className="decoration-button-yellow"></button>
         </div>
       </div>
-      <div class='flex'>
-        <div class='flex-1'>
-          <TextBox placeholder="Busca tu pokemon"></TextBox>
+      <div className="flex">
+        <div className="flex-1">
+          <TextBox ref={inputText} placeholder="Busca tu pokemon"></TextBox>
         </div>
-        <div class='flex-none w-30'>
-          <Button></Button>
+        <div className="flex-none w-30">
+          <Button
+            onClick={() => {
+              searchPokemonByName(inputText.current.value);
+              setIsSearch(true);
+            }}
+          ></Button>
         </div>
-      </div>
-      <div className="pokemon-list">
-        {pokemons.map((pokemon, index) => (
-          <button key={index} onClick={() => setSelectedPokemon(pokemon)}>
-            {pokemon.name}
-          </button>
-        ))}
       </div>
     </div>
   );
